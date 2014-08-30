@@ -11,3 +11,5 @@ $('input[type=password]').disableAutocomplete();
 The above creates two new fields (one is a clone with type text, the other is hidden and used to send the actual password data to the server) then removes the original pesky autocomplete field from the DOM.
 
 * I will add implemnentation details soon. This is a rush upload, sorry.
+
+Ref: http://plugins.jquery.com/disable-autocomplete/

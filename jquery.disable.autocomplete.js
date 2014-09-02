@@ -1,9 +1,9 @@
 /*
- * jQuery Disable Autocomplete Plugin v${version}
- * https://github.com/say2joe/jquery.disable-autocomplete
- *
- * Date: ${timestamp}
- */
+* jQuery Disable Autocomplete Plugin v${version}
+* https://github.com/say2joe/jquery.disable-autocomplete
+*
+* Date: ${timestamp}
+*/
 (function($) {
 
 	function disableAutocomplete() {
@@ -17,7 +17,7 @@
 		var $clone = $input.clone();
 
 		var rePswdChar = /^[\ \w\`\~\!\@\#\$\%\^\&\*\(\)\-\=\+\/\?\.\>\,\<\'\"\;\:\\\|\]\}\[\{]$/;
-                var reArryowKey = /^(37|39)$/;
+		var reArryowKey = /^(37|39)$/;
 		var reBackDelete = /^(8|46)$/;
 
 		function maskAndSyncInputs (event) {
@@ -25,10 +25,10 @@
 			var maskedValue = $clone.val();
 			var actualValue = $hidden.val();
 			var cursorPos = this.selectionStart;
-                        var character = String.fromCharCode(key);
+			var character = String.fromCharCode(key);
 			var selectionLength = (this.selectionEnd - cursorPos);
 
-                        var isArrowKey = reArryowKey.test(event.keyCode);
+			var isArrowKey = reArryowKey.test(event.keyCode);
 			var isBackspaceOrDelete = reBackDelete.test(key);
 			var isAcceptablePswdChar = rePswdChar.test(character);
 
@@ -53,7 +53,7 @@
 					arrMaskedValue.splice(cursorPos, selectionLength, '*');
 					cursorPos++;
 				} else {
-                                        return isBackspaceOrDelete || isArrowKey;
+					return isBackspaceOrDelete || isArrowKey;
 				}
 			} else {
 				// Disable pasting passwords.
@@ -78,7 +78,7 @@
 		}).on(
 			"keypress keydown paste", maskAndSyncInputs
 		);
-
+		
 		$input.before(
 			$hidden, $clone
 		).remove();

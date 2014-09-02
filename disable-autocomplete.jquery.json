@@ -1,6 +1,6 @@
 {
 	"name": "disable-autocomplete",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"title": "jQuery Disable Autocomplete",
 	"author": {
 		"name": "Joe Johnson",
@@ -16,10 +16,10 @@
 	}],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/say2joe/jquery.disable.autocomplete.git"
+		"url": "https://github.com/say2joe/jquery.disable-autocomplete.git"
 	},
-	"dependencies": { "jquery": ">= 1.4" },
-	"docs": "https://github.com/say2joe/jquery.disable.autcomplete/blob/master/README.md",
+	"dependencies": { "jquery": ">= 1.7" },
+	"docs": "https://github.com/say2joe/jquery.disable-autocomplete/blob/master/README.md",
 	"keywords": ["jquery","autocomplete","off","password","text","form","mask","fields","say2joe"],
 	"description": "This jQuery plug-in enforces the autocomplete=off HTML attribute on password (and other) fields. Recent browsers have chosen to ignore this attribute in favor of user preferences. However, some financial (and other) institutions may have good reasons to enforce this practice."
 }

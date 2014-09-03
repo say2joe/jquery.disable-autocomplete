@@ -14,7 +14,9 @@
 		}
 
 		var $clone = $input.clone();
-		var $hidden = $input.clone().attr("type", "hidden").removeAttr("placeholder");
+		var $hidden = $input.clone()
+					.attr("type", "hidden")
+					.removeAttr("placeholder");
 
 		var rePswdChar = /^[\w\ \`\~\!\@\#\$\%\^\&\*\(\)\-\=\+\/\?\.\>\,\<\'\"\;\:\\\|\]\}\[\{]$/;
 		var reArryowKey = /^(37|39)$/;

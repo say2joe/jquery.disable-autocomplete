@@ -8,7 +8,7 @@
 
 	function disableAutocomplete() {
 
-		var $input = $(this).attr("autocomplete", "off");
+		var $input = $(this).val("").attr("autocomplete", "off");
 		if (typeof this.selectionStart === "undefined") {
 			return true; // Older browsers are OK.
 		}
@@ -78,7 +78,7 @@
 		}).on(
 			"keypress keydown paste", maskAndSyncInputs
 		);
-		
+
 		$input.before(
 			$hidden, $clone
 		).remove();

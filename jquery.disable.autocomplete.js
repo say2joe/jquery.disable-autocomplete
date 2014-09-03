@@ -9,14 +9,13 @@
 	function disableAutocomplete() {
 
 		var $input = $(this).attr("autocomplete", "off").val('');
+
 		if (typeof this.selectionStart === "undefined") {
 			return true; // Older browsers are OK.
 		}
 
-		var $clone = $input.clone();
-		var $hidden = $input.clone()
-					.attr("type", "hidden")
-					.removeAttr("placeholder");
+		var $clone = $input.clone().removeAttr("placeholder");
+		var $hidden = $input.clone().removeAttr("placeholder").attr("type", "hidden");
 
 		var rePswdChar = /^[\w\ \`\~\!\@\#\$\%\^\&\*\(\)\-\=\+\/\?\.\>\,\<\'\"\;\:\\\|\]\}\[\{]$/;
 		var reArryowKey = /^(37|39)$/;

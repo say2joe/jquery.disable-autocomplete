@@ -13,8 +13,8 @@
 			return true; // Older browsers are OK.
 		}
 
-		var $hidden = $input.clone().attr("type", "hidden");
 		var $clone = $input.clone();
+		var $hidden = $input.clone().attr("type", "hidden").removeAttr("placeholder");
 
 		var rePswdChar = /^[\w\ \`\~\!\@\#\$\%\^\&\*\(\)\-\=\+\/\?\.\>\,\<\'\"\;\:\\\|\]\}\[\{]$/;
 		var reArryowKey = /^(37|39)$/;
@@ -41,19 +41,19 @@
 			if (event.type === "keydown") {
 				if (isBackspaceOrDelete) {
 					if (selectionLength) {
-						arrMaskedValue.splice(cursorPos, selectionLength);
+						//arrMaskedValue.splice(cursorPos, selectionLength);
 						arrActualValue.splice(cursorPos, selectionLength);
 					} else if (key === 46) { // Delete next character
-						arrMaskedValue.splice(cursorPos, 1);
+						//arrMaskedValue.splice(cursorPos, 1);
 						arrActualValue.splice(cursorPos, 1);
 					} else { // Delete last character (backspace)
-						arrMaskedValue.splice(--cursorPos, 1);
+						//arrMaskedValue.splice(--cursorPos, 1);
 						arrActualValue.splice(cursorPos, 1);
 					}
 					$hidden.val(arrActualValue.join(''));
-					$clone.val(arrMaskedValue.join(''));
+					//$clone.val(arrMaskedValue.join(''));
 				}
-				return false;
+				return true;
 			} else if (event.type === "keypress") {
 				if (isAcceptablePswdChar) {
 					arrActualValue.splice(cursorPos, selectionLength, character);

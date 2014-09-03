@@ -8,7 +8,7 @@
 
 	function disableAutocomplete() {
 
-		var $input = $(this).val("").attr("autocomplete", "off");
+		var $input = $(this).attr("autocomplete", "off").val('');
 		if (typeof this.selectionStart === "undefined") {
 			return true; // Older browsers are OK.
 		}
@@ -16,7 +16,7 @@
 		var $hidden = $input.clone().attr("type", "hidden");
 		var $clone = $input.clone();
 
-		var rePswdChar = /^[\ \w\`\~\!\@\#\$\%\^\&\*\(\)\-\=\+\/\?\.\>\,\<\'\"\;\:\\\|\]\}\[\{]$/;
+		var rePswdChar = /^[\w\ \`\~\!\@\#\$\%\^\&\*\(\)\-\=\+\/\?\.\>\,\<\'\"\;\:\\\|\]\}\[\{]$/;
 		var reArryowKey = /^(37|39)$/;
 		var reBackDelete = /^(8|46)$/;
 
@@ -31,6 +31,9 @@
 			var isArrowKey = reArryowKey.test(event.keyCode);
 			var isBackspaceOrDelete = reBackDelete.test(key);
 			var isAcceptablePswdChar = rePswdChar.test(character);
+
+			if (maskedValue === "password") maskedValue = '';
+			if (actualValue === "password") actualValue = '';
 
 			var arrMaskedValue = maskedValue.split('');
 			var arrActualValue = actualValue.split('');

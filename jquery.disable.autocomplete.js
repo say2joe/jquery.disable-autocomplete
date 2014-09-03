@@ -41,15 +41,19 @@
 			if (event.type === "keydown") {
 				if (isBackspaceOrDelete) {
 					if (selectionLength) {
+						arrMaskedValue.splice(cursorPos, selectionLength);
 						arrActualValue.splice(cursorPos, selectionLength);
 					} else if (key === 46) { // Delete next character
+						arrMaskedValue.splice(cursorPos, 1);
 						arrActualValue.splice(cursorPos, 1);
 					} else { // Delete last character (backspace)
-						arrActualValue.splice(--cursorPos, 1);
+						arrMaskedValue.splice(--cursorPos, 1);
+						arrActualValue.splice(cursorPos, 1);
 					}
 					$hidden.val(arrActualValue.join(''));
+					$clone.val(arrMaskedValue.join(''));
 				}
-				return true;
+				return false;
 			} else if (event.type === "keypress") {
 				if (isAcceptablePswdChar) {
 					arrActualValue.splice(cursorPos, selectionLength, character);

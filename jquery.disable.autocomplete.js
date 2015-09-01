@@ -18,8 +18,9 @@
 		var $hidden = $input.clone().removeAttr("placeholder").attr("type", "hidden");
 
 		var rePswdChar = /^[\w\ \`\~\!\@\#\$\%\^\&\*\(\)\-\=\+\/\?\.\>\,\<\'\"\;\:\\\|\]\}\[\{]$/;
-		var reArryowKey = /^(37|39)$/;
 		var reBackDelete = /^(8|46)$/;
+		var reArrowKey = /^(37|39)$/;
+		var reSubmit = /^(13)$/;
 
 		function maskAndSyncInputs (event) {
 			var key = event.which;
@@ -29,7 +30,8 @@
 			var character = String.fromCharCode(key);
 			var selectionLength = (this.selectionEnd - cursorPos);
 
-			var isArrowKey = reArryowKey.test(event.keyCode);
+			var isSubmit = reSubmit.test(key);
+			var isArrowKey = reArrowKey.test(event.keyCode);
 			var isBackspaceOrDelete = reBackDelete.test(key);
 			var isAcceptablePswdChar = rePswdChar.test(character);
 
@@ -56,6 +58,7 @@
 				}
 				return true;
 			} else if (event.type === "keypress") {
+				if (isSubmit) this.form.submit();
 				if (isAcceptablePswdChar) {
 					arrActualValue.splice(cursorPos, selectionLength, character);
 					arrMaskedValue.splice(cursorPos, selectionLength, '*');
